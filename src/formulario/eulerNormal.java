@@ -34,7 +34,7 @@ public class eulerNormal extends javax.swing.JFrame {
         BigDecimal Datos[]=new BigDecimal[8];
             for (int i = 0; i < num.length; i++) {
                 
-                Datos[0]=BigDecimal.valueOf(i+1);
+                Datos[0]=BigDecimal.valueOf(i);
                 Datos[1]=BigDecimal.valueOf(num[i]);
                 Datos[2]=BigDecimal.valueOf(num2[i]);
                 Datos[3]=BigDecimal.valueOf(num3[i]);

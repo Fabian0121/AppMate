@@ -2,10 +2,9 @@
 package metodos;
 
 import java.math.BigDecimal;
-import java.math.RoundingMode;
 
 
-public class eulerN {
+public class runge {
     /*
     Xn= Valores de Xn
     Va= Valores aproximados 
@@ -126,5 +125,4 @@ public class eulerN {
         }
         return errorR;
     }
-    
 }

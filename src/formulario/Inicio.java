@@ -221,6 +221,7 @@ public class Inicio extends javax.swing.JFrame {
  
        //línea 2-hacemos visible el formulario que queremos llamar 
         eulermejorado.setVisible(true); 
+        eulermejorado.mostrarTabla();
         dispose();
     }//GEN-LAST:event_jButton2ActionPerformed
 
@@ -230,6 +231,7 @@ public class Inicio extends javax.swing.JFrame {
  
        //línea 2-hacemos visible el formulario que queremos llamar 
         runge.setVisible(true); 
+        runge.mostrarTabla();
         dispose();
     }//GEN-LAST:event_jButton3ActionPerformed
 

@@ -1,6 +1,7 @@
 
 package formulario;
 
+import java.math.BigDecimal;
 import javax.swing.table.DefaultTableModel;
 
 
@@ -10,6 +11,7 @@ public class eulerMejorado extends javax.swing.JFrame {
     DefaultTableModel tabla= new DefaultTableModel();
     public eulerMejorado() {
         initComponents();
+        tabla.addColumn("id");
         tabla.addColumn("Xn");
         tabla.addColumn("Valor Aproximado");
         tabla.addColumn("Valore Real");
@@ -17,7 +19,32 @@ public class eulerMejorado extends javax.swing.JFrame {
         tabla.addColumn("Error Relativo");
         jTable1.setModel(tabla);
     }
-
+    public void mostrarTabla()
+    {
+        metodos.eulerM metodo= new metodos.eulerM();
+        //
+        double num[]=metodo.calcularx();
+        //double num2[]=metodo.calcularY();
+        double num3[]=metodo.valorReal();
+        //double num4[]=metodo.error();
+        //double num5[]=metodo.errorRelativo();
+        //
+        BigDecimal Datos[]=new BigDecimal[8];
+            for (int i = 0; i < num.length; i++) {
+                
+                Datos[0]=BigDecimal.valueOf(i);
+                Datos[1]=BigDecimal.valueOf(num[i]);
+                //Datos[2]=BigDecimal.valueOf(num2[i]);
+                Datos[3]=BigDecimal.valueOf(num3[i]);
+                //Datos[4]=BigDecimal.valueOf(num4[i]);
+                //Datos[5]=BigDecimal.valueOf(num5[i]);
+                tabla.addRow(Datos);
+            }
+            jTable1.setModel(tabla);
+        //
+        
+        
+    }
 
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents

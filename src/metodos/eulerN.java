@@ -13,6 +13,7 @@ public class eulerN {
     Error= Valores de error Vr-Va
     Error Relativo= Valores relativos de (Vr-Va/Vr)*100
     */
+    //
     private double []Xn=new double[21];
     private double []Va=new double[21];
     private double []Vr=new double[21];

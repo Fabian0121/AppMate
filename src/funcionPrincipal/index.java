@@ -11,6 +11,7 @@ public class index {
         eulerN Metodos = new eulerN();
         Inicio inicio = new Inicio();
         inicio.setVisible(true);
+        //
         /*BigDecimal num[]=Metodos.calcularx();
         for (int i = 0; i < num.length; i++) {
             System.out.println(" ");
@@ -27,4 +28,5 @@ public class index {
     2-Responsabilidad social ambiental se refiere a la imputalidad de una valoracion negativa o positiva de una decision
     3- Rsponsabilida social o universitaria con la finalidad d etener ideas creativas y comprometidos con la solucion de problemas ambientales
     */
+    
 }

@@ -17,6 +17,7 @@ public class Inicio extends javax.swing.JFrame {
         ImageIcon label_imagen = new ImageIcon(getClass().getResource("/imagenes/inicio.jpg"));
         ImageIcon formato_ajustar = new ImageIcon(label_imagen.getImage().getScaledInstance(JLabel_imagen.getWidth(),JLabel_imagen.getHeight(),Image.SCALE_DEFAULT));
         JLabel_imagen.setIcon(formato_ajustar);
+        //
     }
 
     /**

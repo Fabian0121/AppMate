@@ -27,6 +27,7 @@ public class rungeKutta extends javax.swing.JFrame {
         tabla.addColumn("Error");
         tabla.addColumn("Error Relativo");
         jTable1.setModel(tabla);
+        //
     }
     public void mostrarTabla()
     {

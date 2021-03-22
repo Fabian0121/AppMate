@@ -25,20 +25,20 @@ public class eulerMejorado extends javax.swing.JFrame {
         metodos.eulerM metodo= new metodos.eulerM();
         //
         double num[]=metodo.calcularx();
-        //double num2[]=metodo.calcularY();
+        double num2[]=metodo.calcularY();
         double num3[]=metodo.valorReal();
-        //double num4[]=metodo.error();
-        //double num5[]=metodo.errorRelativo();
+        double num4[]=metodo.error();
+        double num5[]=metodo.errorRelativo();
         //
         BigDecimal Datos[]=new BigDecimal[8];
             for (int i = 0; i < num.length; i++) {
                 
                 Datos[0]=BigDecimal.valueOf(i);
                 Datos[1]=BigDecimal.valueOf(num[i]);
-                //Datos[2]=BigDecimal.valueOf(num2[i]);
+                Datos[2]=BigDecimal.valueOf(num2[i]);
                 Datos[3]=BigDecimal.valueOf(num3[i]);
-                //Datos[4]=BigDecimal.valueOf(num4[i]);
-                //Datos[5]=BigDecimal.valueOf(num5[i]);
+                Datos[4]=BigDecimal.valueOf(num4[i]);
+                Datos[5]=BigDecimal.valueOf(num5[i]);
                 tabla.addRow(Datos);
             }
             jTable1.setModel(tabla);

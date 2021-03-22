@@ -22,6 +22,7 @@ public class eulerM {
     public double a1;
     public double a2;
     public double a3;
+    public double d;
     public redondeo redondear = new redondeo();
     //Calcular valores de Xn
     
@@ -51,77 +52,81 @@ public class eulerM {
     //Calcular Y
     //y=(y0+hf(x0,y0)+2x1.y1)/2
     //Se divide en 4 pasos
-    public  double[] calcularY1()
-    {
-        //
-        double valor1=1;
-        Xn[0]=valor1;
-        //
-        double valor =1;
-        Va[0]= valor;
-        //
-        double y1;
-        //
-        double paso1;
-        double paso2;
-        double resultado;
-        double b1=2;
-        double redondeado;
-        for (int i = 0; i < Xn.length; i++) {
-            //Calculo de Yn*
-            a1=2*Xn[i]*Va[i];
-            redondeado = redondear.redondeo4(a1);
-            
-            a2=Va[i]+0.025*a1;
-            redondeado = redondear.redondeo4(a2);
-            y1=redondeado;
-            //Calculo de Yn
-            //Paso1
-            a1=2*Xn[i]*Va[i];
-            redondeado = redondear.redondeo4(a1);
-            
-            a2=Va[i]+0.025*a1;
-            redondeado = redondear.redondeo4(a2);
-            paso1=redondeado;
-            //Paso2
-            a3=2*Xn[i+1]*y1;
-            redondeado = redondear.redondeo2(a1);
-            paso2 = redondear.redondeo2(a2);
-            //Operacion paso1+paso2/2
-            resultado= paso1+paso2/2;
-            redondeado = redondear.redondeo2(resultado);
-            Va[i+1]=redondeado;
-        }
-        return Va;
-    }
-    //Calcular Y
-    //y=y0+hf(x0,y0)+2x1.y1/2
-    //Se divide en 4 pasos
     public  double[] calcularY()
     {
         //
-        double valor1=1;
-        Xn[0]=valor1;
+        double valor=1;
+        Xn[0]=valor;
+        Va[0]=valor;
         //
-        double valor =1;
-        Va[0]= valor;
         //
-        double b1=2;
+        double a11;
+        double a12;
+        double c;
+        double b;
+
+        double y1;
+        double x;
+        //
+        double paso1;
+        double paso2;
+        double b1;
+        double resultado;
         double redondeado;
         for (int i = 1; i < Xn.length; i++) {
-            //Sumas y multiplicacion
-            a1=b1*Va[i-1]*Xn[i-1];
-            redondeado =redondear.redondeo4(a1);
-            
-            a2=0.025*redondeado;
-            redondeado =redondear.redondeo4(a2);
-
-            a3=Va[i-1]+redondeado;
+            //Calculo de Yn*
+            //Yn-1+0.025(2(Xn-1)(Yn-1))
+            //(Xn-1)(Yn-1)
+            a1=Xn[i-1]*Va[i-1];  
+            redondeado = redondear.redondeo4(a1);
+            //(2(Xn-1)(Yn-1))
+            a11=2*redondeado;
+            redondeado = redondear.redondeo4(a11);
+            a11=redondeado;
+            //0.025(2(Xn-1)(Yn-1))
+            a2=0.025*a11;
+            redondeado = redondear.redondeo4(a2);
+            //Yn-1+0.025(2(Xn-1)(Yn-1))
+            a12=Va[i-1]+a2;
+            redondeado = redondear.redondeo4(a12);
+            y1=redondeado;
+            /////-------------/////
+            c=Va[i-1];
+            c=c+0.025;
+            redondeado = redondear.redondeo4(c);
+            double xd=redondeado;
+            d=redondeado;
+            //Division
+            //Parte 1
+            a1=Xn[i-1]*Va[i-1];
+            redondeado = redondear.redondeo4(a1);
+            a11=2*redondeado;
+            redondeado = redondear.redondeo4(a11);
+            a11=redondeado;
+            //Parte 2
+            a2=Xn[i-1]*y1;
+            redondeado = redondear.redondeo4(a2);
+            a12=2*redondeado;
+            redondeado = redondear.redondeo4(a12);
+            a12=redondeado;
+            //Division
+            a3=a11+a12;
             redondeado = redondear.redondeo4(a3);
-            Va[i]=redondeado;
+            double ax;
+            paso1=redondeado;
+            paso1=paso1/2;
+            redondeado = redondear.redondeo4(paso1);
+            double x1=redondeado;
+            //Multiplicacion
+            redondeado = redondear.redondeo4(d);
+            double res;
+            res=xd*x1;
+            //redondeado = redondear.redondeo4(res);
+            Va[i]=res;
         }
         return Va;
     }
+
     //Calcular Valor Real
     public double[] valorReal()
     {

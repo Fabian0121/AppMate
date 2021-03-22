@@ -44,7 +44,59 @@ public class eulerM {
         }
         return Xn;
     }
+    //Calcular Y*
+    //y0+hf(x0,y0)
+    //se divide en 2 pasos
+    ///////////////////////
     //Calcular Y
+    //y=(y0+hf(x0,y0)+2x1.y1)/2
+    //Se divide en 4 pasos
+    public  double[] calcularY1()
+    {
+        //
+        double valor1=1;
+        Xn[0]=valor1;
+        //
+        double valor =1;
+        Va[0]= valor;
+        //
+        double y1;
+        //
+        double paso1;
+        double paso2;
+        double resultado;
+        double b1=2;
+        double redondeado;
+        for (int i = 0; i < Xn.length; i++) {
+            //Calculo de Yn*
+            a1=2*Xn[i]*Va[i];
+            redondeado = redondear.redondeo4(a1);
+            
+            a2=Va[i]+0.025*a1;
+            redondeado = redondear.redondeo4(a2);
+            y1=redondeado;
+            //Calculo de Yn
+            //Paso1
+            a1=2*Xn[i]*Va[i];
+            redondeado = redondear.redondeo4(a1);
+            
+            a2=Va[i]+0.025*a1;
+            redondeado = redondear.redondeo4(a2);
+            paso1=redondeado;
+            //Paso2
+            a3=2*Xn[i+1]*y1;
+            redondeado = redondear.redondeo2(a1);
+            paso2 = redondear.redondeo2(a2);
+            //Operacion paso1+paso2/2
+            resultado= paso1+paso2/2;
+            redondeado = redondear.redondeo2(resultado);
+            Va[i+1]=redondeado;
+        }
+        return Va;
+    }
+    //Calcular Y
+    //y=y0+hf(x0,y0)+2x1.y1/2
+    //Se divide en 4 pasos
     public  double[] calcularY()
     {
         //

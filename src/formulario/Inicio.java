@@ -85,7 +85,7 @@ public class Inicio extends javax.swing.JFrame {
 
         jButton3.setBackground(new java.awt.Color(0, 102, 153));
         jButton3.setForeground(new java.awt.Color(255, 255, 255));
-        jButton3.setText("Rush Kuta  ");
+        jButton3.setText("Runge-Kutta");
         jButton3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton3ActionPerformed(evt);

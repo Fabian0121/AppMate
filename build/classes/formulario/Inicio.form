@@ -150,7 +150,7 @@
         </Component>
         <Component class="javax.swing.JTextField" name="JTextfield_1">
           <Properties>
-            <Property name="text" type="java.lang.String" value="0.250"/>
+            <Property name="text" type="java.lang.String" value="0.025"/>
             <Property name="enabled" type="boolean" value="false"/>
           </Properties>
         </Component>
@@ -190,7 +190,7 @@
             <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="ff" green="ff" red="ff" type="rgb"/>
             </Property>
-            <Property name="text" type="java.lang.String" value="Rush Kuta  "/>
+            <Property name="text" type="java.lang.String" value="Runge-Kutta"/>
           </Properties>
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton3ActionPerformed"/>

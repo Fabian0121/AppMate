@@ -61,17 +61,8 @@ public class eulerM {
         Va[0]=valor;
         //
         //
-        double a11;
-        double a12;
-        double v1;
-        double v2;
-
-        double y1;
-        double x;
+        double a11,a12,v1,v2,y1,x,paso1,paso2;
         //
-        double paso1;
-        double paso2;
-
         for (int i = 1,c = 0 ; i < Xn.length; i++,c++) {
             //Calculo de Yn*
             //Yn-1+0.025(2(Xn-1)(Yn-1))
@@ -94,6 +85,7 @@ public class eulerM {
             y1=redondeado;
             //Hasta aqui bien.
             ///-------------/////
+            ///Calculo de Yn
             //Solucion de Yn-1+0.025((2(Xn-1)(Yn-1)+2(Xn)(Yn*)/2)
             //Yn-1+0.025
             double aux=Va[i-1];

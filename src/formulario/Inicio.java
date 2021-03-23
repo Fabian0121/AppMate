@@ -62,7 +62,7 @@ public class Inicio extends javax.swing.JFrame {
         jLabel5.setFont(new java.awt.Font("Felix Titling", 1, 12)); // NOI18N
         jLabel5.setText("Valor de H");
 
-        JTextfield_1.setText("0.250");
+        JTextfield_1.setText("0.025");
         JTextfield_1.setEnabled(false);
 
         jButton4.setBackground(new java.awt.Color(0, 102, 153));

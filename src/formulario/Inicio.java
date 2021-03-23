@@ -4,7 +4,6 @@
  * and open the template in the editor.
  */
 package formulario;
-
 import java.awt.Image;
 import javax.swing.ImageIcon;
 public class Inicio extends javax.swing.JFrame {

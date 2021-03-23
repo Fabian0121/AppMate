@@ -34,20 +34,20 @@ public class rungeKutta extends javax.swing.JFrame {
         metodos.runge metodo= new metodos.runge();
         //
         double num[]=metodo.calcularx();
-        //double num2[]=metodo.calcularY();
+        double num2[]=metodo.calcularY();
         double num3[]=metodo.valorReal();
-        //double num4[]=metodo.error();
-        //double num5[]=metodo.errorRelativo();
+        double num4[]=metodo.error();
+        double num5[]=metodo.errorRelativo();
         //
         BigDecimal Datos[]=new BigDecimal[8];
             for (int i = 0; i < num.length; i++) {
                 
                 Datos[0]=BigDecimal.valueOf(i);
                 Datos[1]=BigDecimal.valueOf(num[i]);
-                //Datos[2]=BigDecimal.valueOf(num2[i]);
+                Datos[2]=BigDecimal.valueOf(num2[i]);
                 Datos[3]=BigDecimal.valueOf(num3[i]);
-                //Datos[4]=BigDecimal.valueOf(num4[i]);
-                //Datos[5]=BigDecimal.valueOf(num5[i]);
+                Datos[4]=BigDecimal.valueOf(num4[i]);
+                Datos[5]=BigDecimal.valueOf(num5[i]);
                 tabla.addRow(Datos);
             }
             jTable1.setModel(tabla);
@@ -106,11 +106,11 @@ public class rungeKutta extends javax.swing.JFrame {
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGap(29, 29, 29)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 264, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
+                .addContainerGap(29, Short.MAX_VALUE)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 356, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(124, 124, 124)
                 .addComponent(jButton1)
-                .addContainerGap(88, Short.MAX_VALUE))
+                .addGap(38, 38, 38))
         );
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
@@ -130,7 +130,7 @@ public class rungeKutta extends javax.swing.JFrame {
                 .addComponent(jLabel1)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 41, Short.MAX_VALUE)
                 .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, 0))
+                .addContainerGap())
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());

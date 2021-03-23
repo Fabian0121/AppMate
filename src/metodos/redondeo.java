@@ -19,5 +19,19 @@ public class redondeo {
         return redondeo;
         
     }
+    //Metodo para redondear a 10
+    public double redondeo10(double valor){
+        redondeo = new BigDecimal(valor)
+                                    .setScale(10, RoundingMode.HALF_EVEN).doubleValue();
+        return redondeo;
+        
+    }
+    //Metodo para redondear a 10
+    public double redondeo6(double valor){
+        redondeo = new BigDecimal(valor)
+                                    .setScale(6, RoundingMode.HALF_EVEN).doubleValue();
+        return redondeo;
+        
+    }
     //
 }

@@ -20,9 +20,9 @@ public class redondeo {
         
     }
     //Metodo para redondear a 10
-    public double redondeo10(double valor){
+    public double redondeo9(double valor){
         redondeo = new BigDecimal(valor)
-                                    .setScale(10, RoundingMode.HALF_EVEN).doubleValue();
+                                    .setScale(9, RoundingMode.HALF_EVEN).doubleValue();
         return redondeo;
         
     }

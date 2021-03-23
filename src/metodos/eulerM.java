@@ -23,6 +23,7 @@ public class eulerM {
     public double a2;
     public double a3;
     public double d;
+    public double redondeado;
     public redondeo redondear = new redondeo();
     //Calcular valores de Xn
     
@@ -62,22 +63,23 @@ public class eulerM {
         //
         double a11;
         double a12;
-        double c;
-        double b;
+        double v1;
+        double v2;
 
         double y1;
         double x;
         //
         double paso1;
         double paso2;
-        double b1;
-        double resultado;
-        double redondeado;
-        for (int i = 1; i < Xn.length; i++) {
+
+        for (int i = 1,c = 0 ; i < Xn.length; i++,c++) {
             //Calculo de Yn*
             //Yn-1+0.025(2(Xn-1)(Yn-1))
             //(Xn-1)(Yn-1)
-            a1=Xn[i-1]*Va[i-1];  
+            double ax1,ax2;
+            ax1=Xn[i-1];
+            ax2=Va[i-1];
+            a1=ax1*ax2; 
             redondeado = redondear.redondeo4(a1);
             //(2(Xn-1)(Yn-1))
             a11=2*redondeado;
@@ -90,39 +92,38 @@ public class eulerM {
             a12=Va[i-1]+a2;
             redondeado = redondear.redondeo4(a12);
             y1=redondeado;
-            /////-------------/////
-            c=Va[i-1];
-            c=c+0.025;
-            redondeado = redondear.redondeo4(c);
-            double xd=redondeado;
-            d=redondeado;
+            //Hasta aqui bien.
+            ///-------------/////
+            //Solucion de Yn-1+0.025((2(Xn-1)(Yn-1)+2(Xn)(Yn*)/2)
+            //Yn-1+0.025
+            double aux=Va[i-1];
+            //a1=aux+0.025;
+            redondeado= redondear.redondeo4(aux+0.025);
+            v1=redondeado;
             //Division
             //Parte 1
-            a1=Xn[i-1]*Va[i-1];
-            redondeado = redondear.redondeo4(a1);
-            a11=2*redondeado;
-            redondeado = redondear.redondeo4(a11);
-            a11=redondeado;
-            //Parte 2
-            a2=Xn[i-1]*y1;
-            redondeado = redondear.redondeo4(a2);
-            a12=2*redondeado;
-            redondeado = redondear.redondeo4(a12);
-            a12=redondeado;
-            //Division
-            a3=a11+a12;
-            redondeado = redondear.redondeo4(a3);
-            double ax;
+            //Solucion de 2(Xn-1)(Yn-1)
+            ax1=Xn[i-1];
+            ax2=Va[i-1];
+            redondeado = redondear.redondeo4(2*ax1*ax2);
             paso1=redondeado;
-            paso1=paso1/2;
-            redondeado = redondear.redondeo4(paso1);
-            double x1=redondeado;
+            //Parte 2
+            //Solucion de 2(Xn)(Yn*)
+            a1=Xn[i]*y1;
+            redondeado = redondear.redondeo4(2*a1);
+            paso2=redondeado;
+            redondeado = redondear.redondeo4((paso1+paso2)/2);
+            paso2=redondeado;
+            //Division
+            redondeado = redondear.redondeo4(0.025*paso2);
+            paso1=redondeado;
+            redondeado = redondear.redondeo4(Va[i-1]+paso1);
             //Multiplicacion
-            redondeado = redondear.redondeo4(d);
-            double res;
-            res=xd*x1;
-            //redondeado = redondear.redondeo4(res);
-            Va[i]=res;
+            //redondeado = redondear.redondeo4(v1*v2);
+            //a3=redondeado;
+            //Pasamos datos al array*/
+            Va[i]=redondeado;
+
         }
         return Va;
     }

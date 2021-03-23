@@ -9,11 +9,11 @@ public class index {
 
     public static void main(String[] args) {
         eulerN Metodos = new eulerN();
-        Inicio inicio = new Inicio();
-        inicio.setVisible(true);
-        //metodos.eulerM metodo= new metodos.eulerM();
+        //Inicio inicio = new Inicio();
+        //inicio.setVisible(true);
+        metodos.runge metodo= new metodos.runge();
         //
-        /*double num[]=metodo.calcularx();
+        double num[]=metodo.calcularx();
         double num2[]=metodo.calcularY();
         double num3[]=metodo.valorReal();
         double num4[]=metodo.error();
@@ -22,7 +22,7 @@ public class index {
         
         for (int i = 0; i < 20; i++) {
             System.out.println(num2[i]);
-        }*/
+        }
         //
         /*BigDecimal num[]=Metodos.calcularx();
         for (int i = 0; i < num.length; i++) {

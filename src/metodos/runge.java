@@ -54,75 +54,68 @@ public class runge {
         double valor =1;
         Va[0]= valor;
         //valored de k;
-        BigDecimal aux1,aux2;
-        BigDecimal a1,a2,a3,a4,a5,h,constante,c2,c3,k1,k2,k3,k4;
-        double b;
+        double a1,a2,a3,a4,a5,h,c1,c2,c3,k1,k2,k3,k4,res;
         double redondeado;
         for (int i = 1; i < Xn.length; i++) {
             //Valores de K1
             //K1=hf(Xn-Yn)
-            constante=new BigDecimal(2);
-            h = new BigDecimal("0.025");
-            aux1=new BigDecimal(Xn[i-1]);
-            aux2=new BigDecimal(Va[i-1]);
-            a1=aux1.multiply(aux2);
-            a2=a1.multiply(constante).multiply(h);
-            b= a2.floatValue();
-            redondeado = redondear.redondeo6(b);
-            a2 = new BigDecimal(redondeado);
-            k1=a2;
-            //K2=hf(xn-1+1/2h)(yn-1+1/2K1)
-            c2 = new BigDecimal("0.5");
-            a1=c2.multiply(h);
-            a2=a1.add(aux1);
-            //
-            a1=c2.multiply(k1);
-            a3=a1.add(aux2);
-            a4=a2.multiply(a3);
-            //
-            a5=a4.multiply(h);
-            b= a5.floatValue();
-            redondeado = redondear.redondeo6(b);
-            a5 = new BigDecimal(redondeado);
-            k2=a5;
-            //K3 hf(xn-1+1/2h)(yn-1+1/2h)
-            c2 = new BigDecimal("0.5");
-            a1=c2.multiply(h);
-            a2=a1.add(aux1);
-            //
-            a1=c2.multiply(k2);
-            a3=a1.add(aux2);
-            a4=a2.multiply(a3);
-            //
-            a5=a4.multiply(h);
-            b= a5.floatValue();
-            redondeado = redondear.redondeo6(b);
-            a5 = new BigDecimal(redondeado);
-            k3=a5;
-            //K4 hf(Xn-1+h)(Yn-1+K3)
-            a1=aux1.add(h);
-            a2=aux2.add(k3);
-            a3=a1.multiply(a2);
-            a4=h.multiply(a3);
-            b= a4.floatValue();
-            redondeado = redondear.redondeo6(b);
-            a4 = new BigDecimal(redondeado);
-            k4=a4;
-            //Y Yn-1-1/6[k1+2k2+2k3+k4]
-            a1=constante.multiply(k2);    
-            a2=constante.multiply(k3);
-            a3=k1.add(a1).add(a2).add(k4);
-            //
-            BigDecimal a,d,e;
-            c3= new BigDecimal(0.16666666666);
-            a4=c3.multiply(a3);
-            b= a4.floatValue();
-            redondeado = redondear.redondeo10(b);
-            a4= new BigDecimal(redondeado);
-            a5=aux2.add(a4);
-            b= a5.floatValue();
-            redondeado = redondear.redondeo4(b);
-            Va[i]=redondeado;
+            a1=Xn[i-1]*Va[i-1];
+            redondeado = redondear.redondeo4(a1);
+            a2=2*redondeado;
+            redondeado = redondear.redondeo4(a2);
+            a3=0.025*redondeado;
+            redondeado = redondear.redondeo4(a3);
+            k1=redondeado;
+            Va[i]= k1;
+            //K2
+            //hf(2(Xn-1+1/2(0.025))(Yn-1+1/2(K1)))
+            a1=0.5*0.025;
+            a2=Xn[i-1]+a1;
+            //---//
+            a3=k1*0.5;
+            a4=Va[i-1]+a3;
+            a5=a2*a4;
+            a5=2*a5;
+            a5=0.025*a5;
+            redondeado = redondear.redondeo9(a5);
+            k2=redondeado;
+            //K3
+            //hf(2(Xn-1+1/2(0.025))(Yn-1+1/2(K2)))
+            a1=0.5*0.025;
+            a2=Xn[i-1]+a1;
+            //---//
+            a3=k2*0.5;
+            a4=Va[i-1]+a3;
+            a5=a2*a4;
+            a5=2*a5;
+            a5=0.025*a5;
+            redondeado = redondear.redondeo9(a5);
+            k3=redondeado;
+            Va[i]= k3;
+            //k4
+            //hf(2(Xn-1*(0.025))(Yn-1*(K3)))
+            a1=Xn[i-1]+0.025;
+            //---//
+            a2=Va[i-1]+k3;
+            a3=a1*a2;
+            a4=2*a3;
+            a5=0.025*a4;
+            redondeado = redondear.redondeo9(a5);
+            k4=redondeado;
+            Va[i]= a5;
+            //Yn
+            //Yn-1+1/6[k1+2k2+2k3+k4]
+            a1=k1;
+            a2=2*k2;
+            a3=2*k3;
+            a4=k4;
+            a5=a1+a2+a3+a4;
+            c1=0.16666666666;
+            c2=c1*a5;
+            c3=Va[i-1]+c2;
+            redondeado = redondear.redondeo4(c3);
+            res=redondeado;
+            Va[i]= res;
             
             
         }
@@ -139,10 +132,10 @@ public class runge {
         for (int i = 1; i < Xn.length; i++) {
             
             a1=Math.pow(Xn[i], 2);
-            redondeado = redondear.redondeo4(a1);
+            redondeado = redondear.redondeo6(a1);
             
             a2=redondeado-1;
-            redondeado = redondear.redondeo4(a2);
+            redondeado = redondear.redondeo6(a2);
             
             a3=Math.pow(2.7183, redondeado);
             redondeado = redondear.redondeo4(a3);

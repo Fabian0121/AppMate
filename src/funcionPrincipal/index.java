@@ -11,6 +11,18 @@ public class index {
         eulerN Metodos = new eulerN();
         Inicio inicio = new Inicio();
         inicio.setVisible(true);
+        //metodos.eulerM metodo= new metodos.eulerM();
+        //
+        /*double num[]=metodo.calcularx();
+        double num2[]=metodo.calcularY();
+        double num3[]=metodo.valorReal();
+        double num4[]=metodo.error();
+        double num5[]=metodo.errorRelativo();
+        
+        
+        for (int i = 0; i < 20; i++) {
+            System.out.println(num2[i]);
+        }*/
         //
         /*BigDecimal num[]=Metodos.calcularx();
         for (int i = 0; i < num.length; i++) {
